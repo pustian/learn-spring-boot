@@ -1,4 +1,4 @@
-# 注解
+# SpringBootApplication注解
 > @EnableAutoConfiguration, @ComponentScan, @Configuration，所起的作用和@SpringBootApplication是相同的
 >@EnableAutoConfiguration、@ComponentScan和@Configuration这3个注解并非是捆绑销售，我们可以将他们任意组合
 指定配置文件
@@ -67,7 +67,7 @@ public class Application {
 > 即使用SpringApplicationBuilder讲多个方法调用串起来，
 > 通过parent() 和 child()来创建多层次的ApplicationContext。
 > 如果查看底层代码，可以看到除了调用child()方法略有不同，其他的和前两种方法几乎一样
- 
+
 
 # 修改port
 ###  配置文件  
