@@ -2,7 +2,39 @@
 
 > jdk1.8
 >
+> mvn 3.5.X
+>
 > spring-boot 2.X
+
+### maven setting.xml 
+
+```xml
+<!-- 加快下载 --> 
+<mirrors>
+    <mirror>
+     <id>alimaven</id>
+     <name>aliyun maven</name>
+     <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+     <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+<!--版本 --> 
+       <profile>   
+            <id>jdk1.8</id>    
+            <activation>   
+                <activeByDefault>true</activeByDefault>    
+                <jdk>1.8</jdk>   
+            </activation>    
+            <properties>   
+                <maven.compiler.source>1.8</maven.compiler.source>    
+                <maven.compiler.target>1.8</maven.compiler.target>    
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>   
+            </properties>   
+        </profile>
+
+```
+
+
 
 ## spring-01
 + SpringBootApplication注解
@@ -11,6 +43,8 @@
 + 修改banner
 + 控制banner
 + Junit
+
+### spring-01-yml
 
 ### spring-01-profile
 

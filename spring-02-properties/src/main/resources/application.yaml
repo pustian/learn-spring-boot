@@ -1,0 +1,25 @@
+#server:
+#    port: 8002
+#
+#person:
+#    name: 田圃森
+#    birthday: 1982/12/06
+#    weight: 75
+#    height: 180
+#    hobbies:
+#        - basketball
+#        - novel
+#    labels:
+#        profile: nice
+#        work: hard
+#    computer:
+#        cpus: 4
+#        mem: 8g
+#    computers:
+#        -   cpus: 2
+#            mem: 16g
+#        -   cpus: 4
+#            mem: 32g
+#        -   cpus: 1
+#            mem: 1g
+#
