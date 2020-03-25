@@ -1,4 +1,4 @@
-package tian.pusen.yaml.bean;
+package tian.pusen.properties.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;

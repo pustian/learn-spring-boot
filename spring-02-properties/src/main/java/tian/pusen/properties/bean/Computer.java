@@ -1,4 +1,4 @@
-package tian.pusen.yaml.bean;
+package tian.pusen.properties.bean;
 
 public class Computer{
     private Integer cpus;

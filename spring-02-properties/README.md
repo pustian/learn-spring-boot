@@ -113,7 +113,7 @@ test:
   host:     localhost
 ```
 
-# Spring boot中引用yaml
+# Spring boot中引用properties
 ### 方法一 application.yml 中追加
 直接再application.yml 中增加描述例如
 #### application.yml
@@ -209,6 +209,8 @@ person.computers[1].mem=32g
 > ```java
 >@PropertySource(value = "classpath:person.properties") // 自定义配置文件目前只支持properties方式
 > ```
+默认不支持yml文件配置如果需要支持可以按照下面文档加功。
+https://www.jianshu.com/p/42fa5541781c
 具体如下
 ```java
 @Component
@@ -276,9 +278,34 @@ public class ApplicationTests {
 \u7530\u5703\u68ee
 # 此处田圃森为输入。 输出修改properties中的汉字即可
 ```
-松散绑定
-> birth_day birthday birth-day 都可以匹配
+```
+person.birthDay=1982/12/06person.weight=75person.height=180person.hobbies[0]=basketballperson.hobbies[1]=novelperson.labels[profile]=niceperson.labels[work]=hardperson.computers[0].cpus=2person.computers[0].mem=16gperson.computers[1].cpus=${person.computers[0].cpus}8person.computers[1].mem=32g
+```
+
+### 随机数
+
+>  ${random.value}	${random.int}	${random.long}	${random.int(10)}	${random.int[1024,65536]}
+
+示例
+
+```properties
+person.name=\u7530\u5703\u68ee${random.uuid}
+```
+
+### 占位符
+
+在配置文件中引用前面配置过得属性
+
+示例
+
+```proper
+app.name=MyApp
+app.description=${app.name} is a spring boot application
+# ${app.name:TianpusenApp} 指的是如果属性app.name 没有找到采用默认值TianpusenApp
+```
+
 # FQA:
+
 > application.properties和application.yaml文件 同时配置 application.properties 中生效
 
 # Value
@@ -305,6 +332,8 @@ private String xx;
 
 
 > + 表示驼峰式、下划线(_)、短横线(-) 大小写不区分
+>
+> 例如 birth_day birthday birth-day 可以看作匹配 
 
 ### SpEL
 
