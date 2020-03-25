@@ -1,0 +1,17 @@
+spring:
+    datasource:
+        username: root
+        password: ldap4$
+        url: jdbc:mysql://192.168.1.106:3306/data_dictionary?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+        driver-class-name: com.mysql.jdbc.Driver
+
+#mybatis:
+#    mapper-locations: classpath:mapper/*Mapper.xml
+#    type-aliases-package: tian.pusen.entity
+
+#showSql
+logging:
+    level:
+        tian:
+            pusen:
+                mapper : debug

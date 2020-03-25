@@ -287,7 +287,10 @@ public class ApplicationTests {
 private String xx;
 ```
 
+>  使用见 HelloController.java
+
 # value-configuration
+
 | |@Configuration|@Value| |
 |---|---|---|---|
 |功能|批量注入配置文件的属性|单个指定|

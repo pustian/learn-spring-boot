@@ -44,7 +44,11 @@
 + 控制banner
 + Junit
 
-### spring-01-yml
+### spring-02-properties
+
++ yaml
++ properties
++ value
 
 ### spring-01-profile
 
