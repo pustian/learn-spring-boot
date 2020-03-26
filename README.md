@@ -42,7 +42,7 @@
 + 修改port
 + 修改banner
 + 控制banner
-+ Junit
++ Test
 
 ### spring-02-properties
 
@@ -50,7 +50,7 @@
 + properties
 + value
 
-### spring-01-profile
+### spring-04-profiles
 
 ### spring-01-logback
 
