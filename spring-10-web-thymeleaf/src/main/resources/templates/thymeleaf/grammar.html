@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>gramma</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+text: <div th:text="${welcome}">Default Mesage</div>
+utext: <div th:utext="${welcome}">Default Mesage</div>
+
+<div id="th-each">
+    <table border="1">
+        <thead>
+        <tr>
+            <td>special</td>
+            <td>name</td>
+            <td>price</td>
+            <td>birthday</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- pets 使用的时对象 -->
+        <tr th:if="${pets.length} eq 0">
+            <td colspan="3">没有信息！！</td>
+        </tr>
+        <tr th:each="pet : ${pets}">
+            <td th:text="${pet.special}">special</td>
+            <td th:text="${pet.name}">name</td>
+            <td th:text="${pet.price}">name</td>
+            <td th:text="${pet.birthday}">name</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+<div id="th-object">
+    <div th:object="${maps}" >
+        <p>computer: <span th:text="*{computer}">computer</span></p>
+        <p>os: <span th:text="*{os}">os</span></p>
+    </div>
+</div>
+
+</body>
+</html>

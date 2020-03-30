@@ -1,4 +1,7 @@
 # SpringBootApplication注解
+
+
+
 > @EnableAutoConfiguration, @ComponentScan, @Configuration，所起的作用和@SpringBootApplication是相同的
 >@EnableAutoConfiguration、@ComponentScan和@Configuration这3个注解并非是捆绑销售，我们可以将他们任意组合
 指定配置文件
