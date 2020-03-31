@@ -1,11 +1,11 @@
 debug: true
-#server:
-#    servlet:
-#        context-path: /crud
 spring:
     thymeleaf:
         cache: false
     messages:
         basename: i18n.message
+#server:
+#    servlet:
+#        context-path: /crud
 #    mvc:
 #        static-path-pattern=/static/**:

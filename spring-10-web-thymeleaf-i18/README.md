@@ -1,7 +1,6 @@
 ### 国际化
 
 ### spring mvc
-
 > 1. 国际化配置文件编写
 >2. 使用ResourceBundleMessageSource管理国际化资源文件
 > 3. 在页面使用fmt:message 获取国际化内容
@@ -49,7 +48,7 @@ public LocaleResolver localeResolver() {
    return localeResolver;
 }
 ```
-
+### 请求时带语言地区，否则采用默认
 在请求时携带区域信息
 
 ```html
@@ -58,7 +57,6 @@ public LocaleResolver localeResolver() {
 ```
 
 自己处理localeResolver
-
 ```java
 // 此处名字必须限制
 @Component("localeResolver")
@@ -79,6 +77,14 @@ public class LocaleResolverExt implements LocaleResolver {
     }
 }
 ```
+> LocaleResolver接口实现,注入生成bean的时候名称限制 localeResolver.
+> 可以用component 中注入也可以bean的时候注入
+>```java
+>//    @Bean
+ //    public LocaleResolver localeResolver(){
+ //        return new LocaleResolverExt();
+ //    }
+>```
 
 ### login
 

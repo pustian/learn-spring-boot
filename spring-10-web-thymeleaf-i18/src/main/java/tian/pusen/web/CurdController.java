@@ -33,7 +33,7 @@ public class CurdController {
         }
     }
 
-    @GetMapping("/dashboard")
+    @GetMapping({"/dashboard", "main.html"})
     public String dashboard() {
         return "dashboard";
     }

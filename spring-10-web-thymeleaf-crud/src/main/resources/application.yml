@@ -1,7 +1,7 @@
 debug: true
-server:
-    servlet:
-        context-path: /crud
+#server:
+#    servlet:
+#        context-path: /crud
 spring:
     thymeleaf:
         cache: false

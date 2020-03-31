@@ -1,5 +1,72 @@
 # SpringBoot 对静态资源的映射规则
 
+### controller 层中
+
+> 使用Controller注解
+>
+> + 想用json返还在方法中添加 @ResponseBody
+
+```bash
+@Controller
+public class IndexController {
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello() {
+        return "hello world";
+    }
+
+    @RequestMapping(value = {"/", "/index", "/index.html", "/home", })
+    public String home(Model model) {
+        return "index";
+    }
+}
+```
+
+### 静态资源
+
+> favicon.ico 直接放到static下
+>
+> 页面模板放在 template
+
+### webjars 以jar包的方式引入静态资源
+
+> cdn是否更好些？
+
+所有/webjars/**,都去classpath:/META-INF/resources/webjars/ 下找资源：
+http://www.webjars.org
+引入jquery-webjar
+
+```xml
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+```
+
+快速访问：http://localhost:8080/webjars/jquery/3.3.1/jquery.js
+
+![](./images/webjars.png)
+
+
+
+引用
+
+快速访问：http://localhost:8080/webjars/jquery/jquery.js （推荐）
+
+```bash
+        <dependency><!--Webjars版本定位工具（前端）-->
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-core</artifactId>
+        </dependency>
+```
+
+
+
+## 一些代码介绍
+
+#### 配置类
+
 `WebMvcAutoConfiguration` 类 中`public void addResourceHandlers(ResourceHandlerRegistry registry) `
 
 ```java
@@ -32,35 +99,6 @@ public class WebMvcAutoConfiguration {
 		}
 }
 ```
-#### 1) webjars 以jar包的方式引入静态资源
-所有/webjars/**,都去classpath:/META-INF/resources/webjars/ 下找资源：
-http://www.webjars.org
-引入jquery-webjar
-
-```xml
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.3.1</version>
-        </dependency>
-```
-快速访问：http://localhost:8080/webjars/jquery/3.3.1/jquery.js
-
-![](./images/webjars.png)
-
-引用
-
-快速访问：http://localhost:8080/webjars/jquery/jquery.js （推荐）
-
-```bash
-        <dependency><!--Webjars版本定位工具（前端）-->
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator-core</artifactId>
-        </dependency>
-```
-
-
-
 
 
 #### 2) */** 访问任何资源（静态资源文件夹）
