@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+    <property name="LOG_HOME" value="/logs" />
+    <property name="APP_NAME" value="data-dictionary" />
+    <property name="LOG_MAX_HISTORY" value="30" />
+    <property name="LOG_APP_HOME" value="${LOG_HOME}/app" />
+    <property name="LOG_SYS_HOME" value="${LOG_HOME}/sys" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{100}[%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="APP"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_APP_HOME}/${APP_NAME}.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>${LOG_MAX_HISTORY}</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{100}[%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="SYS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_SYS_HOME}/${APP_NAME}-sys.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>${LOG_MAX_HISTORY}</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{100}[%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 业务日志输出 -->
+    <springProfile name="default">
+        <logger name="tian.pusen" level="DEBUG" additivity="false">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="APP"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="dev">
+        <logger name="tian.pusen" level="DEBUG" additivity="false">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="APP"/>
+        </logger>
+        <!-- SQL 日志-->
+        <logger name="tian.pusen.mapper" level="DEBUG" additivity="false">
+            <appender-ref ref="STDOUT"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="uat">
+        <logger name="tian.pusen" level="INFO" additivity="false">
+<!--            <appender-ref ref="STDOUT"/>-->
+            <appender-ref ref="APP"/>
+        </logger>
+    </springProfile>
+
+    <!-- 框架的日志 -->
+    <logger name="org" level="INFO"/>
+    <logger name="javax" level="INFO"/>
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="SYS"/>
+    </root>
+ </configuration>
