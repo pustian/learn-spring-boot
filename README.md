@@ -138,6 +138,17 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 
 ### Spring-10-jdbc
 
+### Spring-30-kafka
+
++ kafka-01 producer,consumer 示例代码
++ kafka-02 自定义解析器目前 --- 有问题
+
+
+
+
+
+
+
 
 
 ## Spring启动步骤
