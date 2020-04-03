@@ -1,0 +1,8 @@
+spring:
+    profiles:
+        active: dev
+
+# 解决数据库建表字段和java字段驼峰写法的一直性映射
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: true

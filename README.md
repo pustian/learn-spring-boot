@@ -90,6 +90,31 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 + 日志原理参看原理
 + 也可以指定参考spring-05-config
 
+### spring-07-data
+
+> 数据库密码安全性（未验证）
+>
+> + 启动是参数提供密码启动
+> + 配置文件中提供密文，Properties注入时get方法作解密处理
+
++ spring-01-jdbc
++ spring-02-datasource
++ spring-03-mybatis
+  + pom.xml 增加jdbc mybatis connector配置
+  + application.yaml 增加spring.datasource.
+  + entity.XXXX 实体类
+  + mapper.XXXXMapper 接口在此类上增加@Mapper 或在主类增加@Mapperscan(xxx.xxx.mapper)
+  + mapper/XXXXmapper.xml 配置文件
++ spring-04-mybatis-annotation
+  + pom.xml 增加jdbc mybatis connector配置
+  + @mapperscan(xxx.xxx.mapper)
+  + application.yaml 增加spring.datasource.
+  + entity.XXXX 实体类
+  + mapper.XXXXMapper 接口
+  + 注意数据库和java实体类的写法导致的转换需要在application.yml 增加配置
++ spring-05-postgres
++ spring-06-jpa
+
 ### spring-10-web
 
 + webjars  引用
@@ -115,29 +140,6 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 
 
 
-
-### spring-10-mybatis
-
-+ pom.xml 增加jdbc mybatis connector配置
-+ @mapperscan(xxx.xxx.mapper)
-+ application.yaml 增加spring.datasource.
-+ entity.XXXX 实体类
-+ mapper.XXXXMapper 接口
-+ mapper/XXXXmapper.xml 配置文件
-
-### Spring-10-mybatis2
-
-+ pom.xml 增加jdbc mybatis connector配置
-+ @mapperscan(xxx.xxx.mapper)
-+ application.yaml 增加spring.datasource.
-+ entity.XXXX 实体类
-+ mapper.XXXXMapper 接口
-
-### Spring-10-mybatis-durid
-
-### Spring-10-jpa
-
-### Spring-10-jdbc
 
 ### Spring-30-kafka
 
