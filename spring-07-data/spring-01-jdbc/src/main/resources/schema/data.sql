@@ -1,0 +1,1 @@
+insert into test values(0, now(), now() );

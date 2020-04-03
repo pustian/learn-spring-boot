@@ -154,7 +154,6 @@ public class Person {
     private List<Computer> computers;
     // getter/setter 
 }
-
 ```
 #### Computer.java
 ```java
@@ -226,7 +225,6 @@ public class Person {
     private List<Computer> computers;
     // getter/setter 
 }
-
 ```
 #### Computer.java
 > 同方法一

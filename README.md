@@ -12,14 +12,15 @@
 <!-- 加快下载 --> 
 <mirrors>
     <mirror>
-     <id>alimaven</id>
-     <name>aliyun maven</name>
-     <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-     <mirrorOf>central</mirrorOf>
+         <id>alimaven</id>
+         <name>aliyun maven</name>
+         <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+         <mirrorOf>central</mirrorOf>
     </mirror>
-  </mirrors>
-<!--版本 --> 
-       <profile>   
+</mirrors>
+<!--编译jdk版本和编码格式 --> 
+<profiles>
+	<profile>   
             <id>jdk1.8</id>    
             <activation>   
                 <activeByDefault>true</activeByDefault>    
@@ -31,7 +32,7 @@
                 <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>   
             </properties>   
         </profile>
-
+</profiles>
 ```
 
 
