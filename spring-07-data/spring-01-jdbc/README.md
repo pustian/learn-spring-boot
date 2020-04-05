@@ -51,6 +51,20 @@ spring.datasource.tomcat.test-on-borrow=true
 
 
 
+# FQA
+
+Q: 数据库里时间不对
+
+>  有时间段偏移
+
+A:
+
+```
+url: jdbc:mysql://192.168.1.106:3306/data_dictionary?serverTimezone=Asia/Shanghai
+中需要有时区
+?serverTimezone=Asia/Shanghai
+```
+
 
 
 DataSourceInitializer 2.x 以上版本需要调整 ？？？
@@ -60,3 +74,7 @@ DataSourceInitializer 2.x 以上版本需要调整 ？？？
   运行schema-xxx.sql 建表语句
   数据语句 data-xxx.sql
   ```
+  
+  
+  
+  
