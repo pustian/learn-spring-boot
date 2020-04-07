@@ -115,6 +115,10 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 + spring-05-postgres
 + spring-06-jpa
 
+### Spring-08-actuator
+
+
+
 ### spring-10-web
 
 + webjars  引用
@@ -137,10 +141,6 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 
 
 
-
-
-
-
 ### Spring-30-kafka
 
 + kafka-01 producer,consumer 示例代码
@@ -148,10 +148,9 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 
 
 
+### spring-80-swaggerui
 
-
-
-
+spring-81-netty
 
 
 ## Spring启动步骤
