@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan("tian.pusen.data.mapper*")
+@MapperScan("tian.pusen.data.mapper")
 public class MybatisPlusConfig {
 //    /*
 //     * 分页插件，自动识别数据库类型

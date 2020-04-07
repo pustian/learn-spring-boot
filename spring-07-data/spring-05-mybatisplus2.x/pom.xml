@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tian.pusen</groupId>
-    <artifactId>spring-05-mybatis-plus</artifactId>
+    <artifactId>spring-05-mybatisplus2.x</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
-    <name>mybatis-myqsl-plus</name>
-    <description>mybatis-myqsl 使用注解</description>
+    <name>mybatisplus2.x</name>
+    <description>mybatisplus2.x 使用注解</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
