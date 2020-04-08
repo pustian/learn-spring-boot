@@ -1,0 +1,18 @@
+# redis
+spring:
+    redis:
+        database: 0
+        host: 192.168.122.249
+        port: 6379
+
+        lettuce:
+            pool:
+                max-idle: 8
+                min-idle: 0
+                max-active: 8
+
+#        cluster:
+#            nodes:
+#                - 192.168.122.30:6379
+#                - 192.168.122.31:6379
+#                - 192.168.122.31:6379

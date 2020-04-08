@@ -1,0 +1,6 @@
+spring:
+    cache:
+        jcache:
+            config: classpath:ehcache/ehcache.xml
+
+debug: true
