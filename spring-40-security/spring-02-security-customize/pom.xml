@@ -4,15 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tian.pusn</groupId>
-    <artifactId>spring-10-web-thymeleaf</artifactId>
+    <groupId>tian.pusen</groupId>
+    <artifactId>spring-02-security-customize</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>spring-02-security-customize</name>
 
     <properties>
-        <slf4j.version>1.7.5</slf4j.version>
-        <thymeleaf-spring5.version>3.0.10.RELEASE</thymeleaf-spring5.version>
-        <thymeleaf.version>3.0.10.RELEASE</thymeleaf.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <parent>
@@ -28,17 +27,17 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <dependency><!--Webjars版本定位工具（前端）-->
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator-core</artifactId>
-        </dependency>
+        <!--thymeleaf对security5的支持依赖-->
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.3.1</version>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
         </dependency>
 
         <dependency>

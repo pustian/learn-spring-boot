@@ -1,4 +1,4 @@
-debug: true
+#debug: true
 spring:
     thymeleaf:
         cache: false

@@ -148,6 +148,25 @@ https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/
 
 
 
+### Spring-40-security
+
++ spring-01-security
++ spring-01-security-customize
++ spring-01-security-mysql
++ spring-01-security-oauth2
++ spring-05-shiro
+
+
+
+### Spring-50-cache
+
++ spring-01-simplecache
++ spring-02-ehcache
++ spring-03-redis
++ spring-04-jcache
+
+> 可以考虑ehcache 本地缓存和 redis分布式缓存共同使用于业务中
+
 ### spring-80-swaggerui
 
 spring-81-netty
