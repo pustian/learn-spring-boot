@@ -1,0 +1,8 @@
+# 自定义jwt的属性
+jwt:
+    token:
+        issuer: yuxi
+        # 秒为单位
+        expiration: 3600
+        # 截至时间。 System.currentTimeMillis/1000 +  秒为单位
+        notBefore:
