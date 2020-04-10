@@ -278,5 +278,16 @@ user-login.html
 
 
 
+### 权限异常
+
+对应的异常处理类
+
+```java
+        // 正常情况下此页面不可见的
+        http.exceptionHandling()
+            /*设置403错误跳转页面*/
+            .accessDeniedHandler(new CustomAccessDeniedHandler());
+```
+
 
 

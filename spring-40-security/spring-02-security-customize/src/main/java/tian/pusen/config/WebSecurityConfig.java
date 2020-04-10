@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import tian.pusen.handler.CustomAccessDeniedHandler;
 
 import java.util.Arrays;
 
@@ -35,16 +36,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 登录页面地址的POST请求就是登录请求，可以用过loginProcessingUrl自定义
               */
             .loginPage("/userlogin");
-//                .and()
+
         /*开启注销功能,访问/logout并清空session。 默认注销成功后会返回 login?logout */
         http.logout()
             /*重定向注销成功后返回页面*/
             .logoutSuccessUrl("/");
-////                .and()
-////                .exceptionHandling()
-////                /*设置403错误跳转页面*/
-////                .accessDeniedHandler(new CustomAccessDeniedHandler())
-//                .and()
+        // 正常情况下此页面不可见的
+        http.exceptionHandling()
+            /*设置403错误跳转页面*/
+            .accessDeniedHandler(new CustomAccessDeniedHandler());
+
         /*开启记住我功能，登录会添加Cookie,点击注销会删除Cookie*/
         http.rememberMe()
             /*设置记住我参数*/
