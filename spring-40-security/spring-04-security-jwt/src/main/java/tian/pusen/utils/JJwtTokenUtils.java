@@ -126,5 +126,9 @@ public final class JJwtTokenUtils  {
                 && ISSUER.equals(getIssuerFromToken(token)) && SUBJECT.equals(getSubjectFromToken(token) )
                 ;
     }
+    public static Boolean validateToken(String token, UserDetails userDetails) {
+        String username =  userDetails.getUsername();
+        return validateToken(token, username);
+    }
 
 }

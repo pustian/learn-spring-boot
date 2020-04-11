@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import tian.pusen.entity.Test;
 import tian.pusen.service.ITestService;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class TestController {
     @Autowired
     ITestService testService;
@@ -40,13 +41,4 @@ public class TestController {
         return "level3/3";
     }
 
-    @GetMapping("/403")
-    public String error() {
-        return "error/403";
-    }
-
-    @GetMapping("/userlogin")
-    public String login() {
-        return "user-login";
-    }
 }

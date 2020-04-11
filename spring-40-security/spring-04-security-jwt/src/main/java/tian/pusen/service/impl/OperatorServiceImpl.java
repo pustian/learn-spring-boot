@@ -38,29 +38,4 @@ public class OperatorServiceImpl implements IOperatorService {
     public List<Operator> getAll() {
         return operatorMapper.getAll();
     }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserDetails result = null;
-        Operator operator = operatorMapper.getByUsername(username);
-        try {
-            if (operator == null) {
-                throw new UsernameNotFoundException("用户名不存在");
-            }
-            //用户权限
-            List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-            if (StringUtils.isNotBlank(operator.getRoles())) {
-                String[] roles = operator.getRoles().split(",");
-                for (String role : roles) {
-                    if (StringUtils.isNotBlank(role)) {
-                        authorities.add(new SimpleGrantedAuthority(role.trim()));
-                    }
-                }
-            }
-            result = new User(operator.getUsername(), operator.getPassword(), authorities);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 }

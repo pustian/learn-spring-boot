@@ -1,3 +1,5 @@
+https://www.jianshu.com/p/5b9f1f4de88d
+https://www.cnblogs.com/pjjlt/p/10960690.html
 # JWT 基础知识
 https://jwt.io/introduction/
 ### 简介

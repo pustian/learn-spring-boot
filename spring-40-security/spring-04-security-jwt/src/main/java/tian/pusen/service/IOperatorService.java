@@ -5,7 +5,7 @@ import tian.pusen.entity.Operator;
 
 import java.util.List;
 
-public interface IOperatorService extends UserDetailsService {
+public interface IOperatorService {
     Integer insert(Operator user);
 
     Operator getById(Long id);
