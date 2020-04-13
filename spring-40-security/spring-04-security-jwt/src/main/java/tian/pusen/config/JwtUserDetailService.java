@@ -1,4 +1,4 @@
-package tian.pusen.service.impl;
+package tian.pusen.config;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserDetailServiceImpl implements UserDetailsService {
+public class JwtUserDetailService implements UserDetailsService {
     @Autowired
     IOperatorService operatorService;
     @Override
@@ -36,6 +36,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     }
                 }
             }
+
             result = new JwtUserDetails(operator);
         } catch (Exception e) {
             e.printStackTrace();
