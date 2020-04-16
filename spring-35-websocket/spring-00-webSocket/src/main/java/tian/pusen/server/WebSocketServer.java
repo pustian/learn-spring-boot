@@ -12,7 +12,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @ServerEndpoint(value = "/ws/asset")
-//@ServerEndpoint(value = "/websocket") // 对应websocket 页面
 @Component
 public class WebSocketServer {
     private static final Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
