@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tian.pusen.server.WebSocketServer;
 
+import javax.websocket.Session;
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/ws")
@@ -18,11 +21,7 @@ public class WebSocketController {
      */
     @GetMapping(value="/notifyMsg")
     public String sendAllMessage(@RequestParam String message){
-        try {
-            WebSocketServer.BroadCastInfo(message);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        WebSocketServer.BroadCastInfo(message);
         return "ok";
     }
 
@@ -34,11 +33,14 @@ public class WebSocketController {
      */
     @GetMapping(value="/sendMsg")
     public String sendOneMessage(@RequestParam String message,@RequestParam String id){
-        try {
-            WebSocketServer.SendMessage(message,id);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        WebSocketServer.SendMessage(message,id);
         return "ok";
+    }
+
+    @GetMapping(value = "/sessinIdList")
+    public List<String> getConnects () {
+       List<String> sessionIdList = WebSocketServer.getSessionSet()
+               .stream().map(session -> session.getId()).collect(Collectors.toList());
+       return sessionIdList;
     }
 }

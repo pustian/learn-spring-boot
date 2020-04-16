@@ -15,13 +15,13 @@
     </h4>
 </p>
 
-<button onclick='connect()'>新建连接</button>
-<button onclick='disconnect()'>关闭连接</button>
+<button id="connect-btn" onclick='connect()'>新建连接 js增加控制连接一次</button>
+<button onclick='disconnect()' >关闭连接</button>
 <button onclick='sendMsg("测试消息", 0)'>发送消息</button>
 <button onclick='sendAll("这是服务中心")'>发送通知</button>
+<button onclick='sessionList()'>连接session</button>
 
 <script >
-<!--    connect();-->
 
     //窗口关闭时，关闭连接
     window.unload=function() {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>客户端</title>
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    <script th:src="@{/js/websocket.js}"></script>
+</head>
+<body>
+    <p>
+        <label>在线人数:</label>
+        <label><span id="cnt"></span></label>
+    </p>
+    <p>
+        <label>session列表:</label>
+        <span id="list"></span>
+    </p>
+    <div>
+        <label>session-id:</label>
+        <label><input id="sessionid"></label>
+        <label>msg:</label>
+        <label><input id="msg"></label>
+        <button onclick="sendMessage()" >发送</button>
+    </div>
+    <button id="connect-btn" onclick='connect()'>新建连接 js增加控制连接一次</button>
+    <button onclick='disconnect()' >关闭连接</button>
+
+    <hr>
+    <br/>
+    <div id="content"  placeholder="请输入要发送的内容">
+    </div>
+    <script>
+        function sendMessage() {
+            var sessionid = $("#sessionid").val();
+            var msg = $("#msg").val();
+            sendMsg(msg, sessionid);
+        }
+
+    </script>
+</body>
+</html>

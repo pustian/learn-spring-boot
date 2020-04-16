@@ -1,3 +1,10 @@
+WebSocket 服务
+ 有两种方案可以建立起WebSocket服务，一种是基于Spring 的 spring-websocket，一种是基于 java 的 websocket-api。
+spring-websocket
+ WebSocketHandler 接口定义了服务端处理WebSocket消息要做的一系列事情。相比直接实现WebSocketHandler，更为简单的方法是扩展AbstractWebSocketHandler，这是WebSocketHandler的一个抽象实现
+websocket-api
+ 通过注解 @ServerEndpoint("/ws")
+
 浏览器登陆 http://localhost:8080/ 或是 http://localhost:8080/index
 查看浏览器的控制台 console 可以看到 以下消息
 ```
