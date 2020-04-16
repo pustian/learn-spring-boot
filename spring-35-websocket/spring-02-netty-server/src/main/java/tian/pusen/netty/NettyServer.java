@@ -15,6 +15,7 @@ import java.net.InetSocketAddress;
 @Component
 public class NettyServer {
     private static final Logger logger = LoggerFactory.getLogger(NettyServer.class);
+
     public void start(InetSocketAddress socketAddress) {
         //new 一个主线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
