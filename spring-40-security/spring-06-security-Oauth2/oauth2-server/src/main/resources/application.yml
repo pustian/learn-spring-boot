@@ -3,4 +3,4 @@ server:
     servlet:
         context-path: /auth #这里一定要加上contextPath，这个坑自己体会吧
 
-debug: true
+#debug: true
