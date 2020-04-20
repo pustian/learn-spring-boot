@@ -14,7 +14,8 @@ Hello World
 dew@diyu204:~/workshop/github.com$ curl http://localhost:8080/api/hello
 {"error":"unauthorized","error_description":"Full authentication is required to access this resource"}
 ```
-获取token
+### get-token
+
 ```bash
 dew@diyu204:~/workshop/github.com$ curl -i -X POST -d "username=admin&password=123456&grant_type=password&client_id=client&client_secret=secret" http://localhost:8080/oauth/token
 HTTP/1.1 200 
@@ -30,7 +31,8 @@ Date: Fri, 17 Apr 2020 05:24:25 GMT
 {"access_token":"6e7df2c2-8593-4aa9-aa71-22788b8e4f5d","token_type":"bearer","refresh_token":"4e9bb35b-c946-43be-9196-7ca582242ab1","expires_in":1199,"scope":"all"}
 dew@diyu204:~/workshop/github.com$
 ```
-带token访问
+### token-access
+
 ```bash
 dew@diyu204:~/workshop/github.com$ curl -H "Authorization:Bearer 6e7df2c2-8593-4aa9-aa71-22788b8e4f5d"  http://localhost:8080/api/hello
 Hello World API

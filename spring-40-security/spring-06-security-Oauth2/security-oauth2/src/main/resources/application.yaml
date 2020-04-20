@@ -2,5 +2,5 @@ server:
     port: 8080
 spring:
     profiles:
-#        active: dev0
-        active: dev1
+        active: dev0
+#        active: dev1

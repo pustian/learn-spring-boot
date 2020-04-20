@@ -1,0 +1,23 @@
+#logging:
+#    level:
+#        root: WARN
+#        org.springframework.web: DEBUG
+#        org.springframework.security: DEBUG
+#        org.springframework.security.oauth2: DEBUG
+
+spring:
+    profiles:
+        active: dev0
+
+---
+# 基于内存存储令牌
+server:
+    port: 8001
+spring:
+    profiles: dev0
+---
+server:
+    port: 8101
+spring:
+    profiles: dev1
+---
