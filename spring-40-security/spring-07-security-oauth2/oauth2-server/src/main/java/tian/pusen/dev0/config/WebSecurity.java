@@ -34,7 +34,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 //                .withUser("guest").password(new BCryptPasswordEncoder().encode("321")).authorities("ANONYMOUS")
         ;
     }
-    
+
 //
 //    // @formatter:off
 //    /**

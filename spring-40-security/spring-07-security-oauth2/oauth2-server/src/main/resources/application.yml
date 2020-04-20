@@ -16,8 +16,28 @@ server:
 spring:
     profiles: dev0
 ---
+# 基于jdbc存储令牌
 server:
     port: 8101
 spring:
     profiles: dev1
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/client?useUnicode=yes&characterEncoding=UTF-8
+        username: root
+        password: 123456ly
+---
+# jwt存储令牌
+server:
+    port: 8201
+spring:
+    profiles: dev2
+
+---
+# jwt存储令牌增强token
+server:
+    port: 8301
+spring:
+    profiles: dev3
+
 ---

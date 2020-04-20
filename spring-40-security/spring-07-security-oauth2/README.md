@@ -1,5 +1,6 @@
 https://www.jianshu.com/p/227f7e7503cb
 authrization-server(授权服务器)
+
 ## 授权服务配置
 + 授权类型（GrantType）、不同授权类型为客户端（Client）提供了不同的获取令牌（Token）方式，每一个客户端（Client）都能够通过明确的配置以及权限来实现不同的授权访问机制
 +  @EnableAuthorizationServer 来配置授权服务机制，并继承 AuthorizationServerConfigurerAdapter 该类重写 configure 方法定义授权服务器策略
@@ -59,3 +60,4 @@ authrization-server(授权服务器)
   + /oauth/token_key：提供公有密匙的端点，如果你使用JWT令牌的话
 
 + 授权端点的 URL 应该被 Spring Security 保护起来只供授权用户访问    
+
