@@ -1,4 +1,9 @@
+一些基础概念
+
+https://www.jianshu.com/p/63115c71a590
+
 # dev0
+
 # 原型
     https://www.cnblogs.com/c1024/p/11011997.html
 
@@ -22,14 +27,15 @@ Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
 Date: Fri, 17 Apr 2020 05:24:25 GMT
 
-{"access_token":"6e7df2c2-8593-4aa9-aa71-22788b8e4f5d","token_type":"bearer","refresh_token":"4e9bb35b-c946-43be-9196-7ca582242ab1","expires_in":1199,"scope":"all"}dew@diyu204:~/workshop/github.com$
+{"access_token":"6e7df2c2-8593-4aa9-aa71-22788b8e4f5d","token_type":"bearer","refresh_token":"4e9bb35b-c946-43be-9196-7ca582242ab1","expires_in":1199,"scope":"all"}
+dew@diyu204:~/workshop/github.com$
 ```
 带token访问
 ```bash
 dew@diyu204:~/workshop/github.com$ curl -H "Authorization:Bearer 6e7df2c2-8593-4aa9-aa71-22788b8e4f5d"  http://localhost:8080/api/hello
 Hello World API
 dew@diyu204:~/workshop/github.com$
-```    
+```
 获取token时 
 ```
 Q:
@@ -56,14 +62,10 @@ public abstract class WebSecurityConfigurerAdapter implements
 protected void configure(HttpSecurity http) throws Exception {
 		logger.debug("Using default configure(HttpSecurity). If subclassed this will potentially override subclass configure(HttpSecurity).");
 
-		http
-			.authorizeRequests()
-				.anyRequest().authenticated()
-				.and()
-			.formLogin().and()
-			.httpBasic();
+		http.authorizeRequests().anyRequest().authenticated()
+				.and().formLogin()
+            	.and().httpBasic();
 	}
-
 	//......
 }	
 ```
@@ -114,10 +116,16 @@ ResourceServerConfigurerAdapter用于保护oauth要开放的资源，同时主�
     }
 ```
 
-dev1
+# dev1
+
 dev0 基本类似UserDetailService 使用了用户名
-roles 也增加了
+也增加了roles 
 测试如下
+
+##### resourceServer访问路径权限
+
+###### /test
+
 ```bash
 dew@diyu204:~$ curl http://localhost:8080/test
 test
@@ -136,7 +144,7 @@ admin/id
         httpSecurity.authorizeRequests().antMatchers("/admins/**")
                 .hasAnyRole("ADMIN").anyRequest().authenticated();
 ```
-                
+
 ```bash
 dew@diyu204:~$ curl http://localhost:8080/users
 {"error":"unauthorized","error_description":"Full authentication is required to access this resource"} 
@@ -151,7 +159,8 @@ dew@diyu204:~$
         httpSecurity.requestMatchers().antMatchers("/users/**")
                 .and().authorizeRequests().antMatchers("/users/**").authenticated();
 ```
-admin
+###### /admins
+
 ```bash
 curl -i -X POST -d "client_id=client-id&client_secret=authorize-secret&grant_type=password&scopes=all&username=admin&password=123456" http://localhost:8080/oauth/token
 {
@@ -179,7 +188,8 @@ dew@diyu204:~$ curl -H "Authorization:Bearer 56480625-9b41-4022-bc79-741c22e9b58
 {"error":"access_denied","error_description":"不允许访问"}dew@diyu204:~$
 ```
 
-user
+###### /users
+
 ```
 curl -i -X POST -d "client_id=client-id&client_secret=authorize-secret&grant_type=password&scopes=all&username=user&password=123456" http://localhost:8080/oauth/token
 {
@@ -201,4 +211,63 @@ dew@diyu204:~$ curl -H "Authorization:Bearer 6c857c17-ff83-4990-ae55-aad690a6815
 users/1dew@diyu204:~$ 
 ```
 
-鉴权在此处还有写问题需要解决
+##### REFRESH_TOKEN
+
+```bash
+dew@diyu204:~$ curl -i -X POST -d "client_id=client-id&client_secret=authorize-secret&grant_type=password&scopes=all&username=admin&password=123456" http://localhost:8080/oauth/token
+HTTP/1.1 200 
+Cache-Control: no-store
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: DENY
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 20 Apr 2020 02:02:13 GMT
+
+{"access_token":"02f14b5d-40d2-4802-a330-3e634ce001c3","token_type":"bearer","refresh_token":"ba6991e7-2893-40fb-927a-f0f3b10b1cab","expires_in":3599,"scope":"all"} 
+dew@diyu204:~$ curl -i -X POST -d "grant_type=refresh_token&refresh_token=ba6991e7-2893-40fb-927a-f0f3b10b1cab&client_id=client-id&client_secret=authorize-secret" http://localhost:8080/oauth/token
+HTTP/1.1 200 
+Cache-Control: no-store
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: DENY
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 20 Apr 2020 02:05:25 GMT
+
+{"access_token":"d84601c2-e69f-4b2a-9d80-b584e697d3c6","token_type":"bearer","refresh_token":"ba6991e7-2893-40fb-927a-f0f3b10b1cab","expires_in":3600,"scope":"all"}
+```
+
+##### client_credential
+
+> 没有refresh token
+
+```bash
+ curl -i -X POST -d "grant_type=client_credentials&client_id=client-id&client_secret=authorize-secret" http://localhost:8080/oauth/token
+{
+    "access_token": "2dce6e4a-db2a-4daf-b2c7-f111846c9e02",
+    "token_type": "bearer",
+    "expires_in": 3599,
+    "scope": "all"
+}
+```
+
+
+
+### 鉴权
+
+在此处还有一些问题。 健全此处理解有问题，不应该再在ResourceSever 配置hasAnyRole，已经在 UserDetailsService 中配置过角色。
+
+
+
+
+
+可以看出上面admin登陆无法访问users。
+
+已经验证过grant_type 为"password", "refresh_token"
+
+dev2-authorization_code
+
+dev3-client_credentials
