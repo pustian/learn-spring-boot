@@ -7,7 +7,7 @@
 
 spring:
     profiles:
-        active: dev0
+        active: dev2
 
 ---
 # 基于内存存储令牌

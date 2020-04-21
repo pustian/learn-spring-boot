@@ -16,15 +16,15 @@ import javax.sql.DataSource;
 @Profile("dev1")
 @Configuration
 public class Oauth2Bean {
-    @Bean
-    protected UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("admin").password(passwordEncoder().encode("123") )
-                .roles("ADMIN", "USER").build());
-        manager.createUser(User.withUsername("user").password(passwordEncoder().encode("123456") )
-                .roles("USER").build());
-        return manager;
-    }
+//    @Bean
+//    protected UserDetailsService userDetailsService() {
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//        manager.createUser(User.withUsername("admin").password(passwordEncoder().encode("123") )
+//                .roles("ADMIN", "USER").build());
+//        manager.createUser(User.withUsername("user").password(passwordEncoder().encode("123456") )
+//                .roles("USER").build());
+//        return manager;
+//    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
