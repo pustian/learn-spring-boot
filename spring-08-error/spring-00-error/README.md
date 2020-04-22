@@ -5,3 +5,9 @@ curl http://localhost:8081/divedby0
 curl http://localhost:8081/businessexecption
 
 GlobalExceptionHandler 中打断点
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    
+}
+```

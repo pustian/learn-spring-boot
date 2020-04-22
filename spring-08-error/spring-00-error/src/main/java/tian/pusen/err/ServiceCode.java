@@ -2,6 +2,7 @@ package tian.pusen.err;
 
 public enum ServiceCode {
     OK("000000", "Success"),
+    HTTP_404_ERROR("990404", "无法找到访问路径"),
     DATEBASE_CONNECT_ERROR("999901", "数据库连接异常"),
     ERROR("999999","System Error")
     ;
