@@ -1,0 +1,11 @@
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+                exclude: env,beans
+    endpoint:
+        shutdown:
+            enabled: true
+        health:
+            show-details: ALWAYS
