@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tian.pusen</groupId>
-    <artifactId>spring-89-swaggerui</artifactId>
+    <artifactId>spring-swaggerui</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>spring-89-swaggerui</name>
-    <description>spring-89-swaggerui 使用</description>
+    <description>spring-swaggerui 使用</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
