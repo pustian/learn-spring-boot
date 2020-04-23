@@ -1,0 +1,20 @@
+server:
+    port: 8022
+spring:
+    #给项目来个名字
+    application:
+        name: rabbitmq-consumer
+    profiles:
+        active: dev
+---
+spring:
+    profiles: dev
+    #配置rabbitMq 服务器
+    rabbitmq:
+        host: 192.168.122.249
+        port: 5672
+        username: admin
+        password: admin
+        #虚拟host 可以不设置,使用server默认host
+        virtual-host: spring
+---
