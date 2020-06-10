@@ -1,6 +1,6 @@
 spring:
     profiles:
-        active: dev
+        active: ali
 
 # 解决数据库建表字段和java字段驼峰写法的一直性映射
 mybatis:
@@ -23,4 +23,12 @@ spring:
         password: mysql123
         url: jdbc:mysql://192.168.122.249:3306/spring?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
         driver-class-name: com.mysql.jdbc.Driver
+---
+spring:
+    profiles: ali
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/spring?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver
 ---

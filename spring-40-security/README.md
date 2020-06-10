@@ -49,3 +49,6 @@ Spring Security在我们进行用户认证以及授予权限的时候，通过�
 
 
 
+spring-security-oauth2
+https://www.jianshu.com/p/68f22f9a00ee
+https://www.cnblogs.com/xugf/p/10720659.html

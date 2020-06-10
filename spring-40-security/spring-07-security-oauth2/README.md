@@ -61,3 +61,7 @@ authrization-server(授权服务器)
 
 + 授权端点的 URL 应该被 Spring Security 保护起来只供授权用户访问    
 
+
+https://www.cnblogs.com/xugf/p/10720659.html
+https://www.jianshu.com/p/68f22f9a00ee
+https://www.jianshu.com/p/f6b73cd23114

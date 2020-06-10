@@ -375,7 +375,7 @@ public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
 ### 登陆
 
 ```bash
-curl -H "Content-Type:applicatio-H "Data_Type:msg" -X POST --data '{"username": "user1"}' http://127.0.0.1:8081/auth/login
+url -H "Content-Type:application/json" -H "Data_Type:msg"  -X POST --data '{"username": "user1"}' http://127.0.0.1:8081/auth/login
 ```
 
 返回token值
